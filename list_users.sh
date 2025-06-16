@@ -1,2 +1,3 @@
 #!/bin/bash
-awk -F : '$3 > 1000 {print $1}' /etc/passwd
+#usernames with their home directories
+awk -F : '$3 > 1000 && $6 ~ /^\/home/ {print $1, $6}' /etc/passwd
